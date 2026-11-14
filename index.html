@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GXW Launcher — лаунчер и сборка MineCraft Battle</title>
+    <meta
+      name="description"
+      content="GXW Launcher — лаунчер для Minecraft со своей сборкой MineCraft Battle: 94 мода, зоны и экономика, техника и дроны. Скачай лаунчер или сборку отдельно."
+    />
+    <meta name="theme-color" content="#080a06" />
+    <meta property="og:title" content="GXW Launcher" />
+    <meta property="og:description" content="Лаунчер и сборка MineCraft Battle 2.1.3: 94 мода, зоны, экономика, техника и дроны." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/og.png" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <link rel="preload" href="assets/fonts/unbounded-600-lat.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/golos-text-400-lat.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <canvas id="mesh" class="mesh" aria-hidden="true"></canvas>
+
+    <header class="nav" id="nav">
+      <a class="brand" href="#top" aria-label="GXW Launcher — на главную">
+        <img src="assets/img/logo.png" alt="" width="38" height="38" />
+        <span>
+          <b>GXW</b>
+          <em>LAUNCHER</em>
+        </span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Разделы">
+        <a href="#features">Возможности</a>
+        <a href="#shots">Скриншоты</a>
+        <a href="#pack">Сборка</a>
+        <a href="#install">Установка</a>
+        <a class="nav-gh" href="https://github.com/GXWag/gxw-launcher" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-sm btn-accent" data-download-launcher href="https://github.com/GXWag/gxw-launcher/releases/latest">
+          Скачать
+        </a>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="badge reveal">
+              <i></i> v<span data-launcher-version>0.3.2</span> · сборка <span data-pack-version>2.1.3</span>
+            </span>
+            <h1 class="reveal">
+              СВОЙ ЛАУНЧЕР.<br />
+              СВОЯ СБОРКА.<br />
+              <span class="accent">СВОИ ПРАВИЛА.</span>
+            </h1>
+            <p class="lead reveal">
+              GXW Launcher — лаунчер для Minecraft с собственной сборкой <b>MineCraft Battle</b>:
+              зоны и экономика, техника, дроны и 94 мода. Один установщик — и ты в игре.
+            </p>
+
+            <div class="hero-actions reveal">
+              <a class="btn btn-accent btn-lg" data-download-launcher href="https://github.com/GXWag/gxw-launcher/releases/latest">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19h14" /></svg>
+                Скачать лаунчер
+              </a>
+              <a class="btn btn-ghost btn-lg" data-download-pack href="https://github.com/GXWag/gxw-minecraft-battle/releases">
+                Скачать сборку
+              </a>
+            </div>
+
+            <ul class="hero-meta reveal">
+              <li>Windows 10 / 11</li>
+              <li>Java ставится сама</li>
+              <li>Обновления в один клик</li>
+            </ul>
+          </div>
+
+          <div class="hero-art reveal">
+            <div class="window">
+              <div class="window-bar">
+                <span class="dots"><i></i><i></i><i></i></span>
+                <span class="window-title">GXW Launcher</span>
+                <span class="window-chip">v<span data-launcher-version>0.3.2</span></span>
+              </div>
+              <img
+                src="assets/img/shot-catalog.png"
+                alt="Скриншот GXW Launcher: каталог сборок"
+                width="1280"
+                height="820"
+                loading="eager"
+              />
+            </div>
+
+            <div class="float float-a">94 мода</div>
+            <div class="float float-b">Forge 1.20.1</div>
+            <div class="float float-c">Зоны и экономика</div>
+          </div>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>TACZ</span><span>·</span><span>SUPERBWARFARE</span><span>·</span><span>ЭКОНОМИКА</span><span>·</span>
+            <span>ЗАХВАТ ЗОН</span><span>·</span><span>ТЕХНИКА</span><span>·</span><span>FPV-ДРОНЫ</span><span>·</span>
+            <span>94 МОДА</span><span>·</span><span>FORGE 1.20.1</span><span>·</span>
+            <span>TACZ</span><span>·</span><span>SUPERBWARFARE</span><span>·</span><span>ЭКОНОМИКА</span><span>·</span>
+            <span>ЗАХВАТ ЗОН</span><span>·</span><span>ТЕХНИКА</span><span>·</span><span>FPV-ДРОНЫ</span><span>·</span>
+            <span>94 МОДА</span><span>·</span><span>FORGE 1.20.1</span><span>·</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat reveal"><b data-count="94">94</b><span>мода в сборке</span></div>
+        <div class="stat reveal"><b data-count="571" data-suffix=" МБ">571 МБ</b><span>размер сборки</span></div>
+        <div class="stat reveal"><b>1.20.1</b><span>версия Minecraft</span></div>
+        <div class="stat reveal"><b data-count="542">542</b><span>иконок сборок</span></div>
+      </section>
+
+      <section class="section" id="features">
+        <header class="section-head">
+          <span class="kicker reveal">Возможности</span>
+          <h2 class="reveal">Всё, что нужно, <span class="accent">уже внутри</span></h2>
+          <p class="reveal">Не просто launcher: сборка, экономика, каталог и оформление живут в одном окне.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M8 7V5h8v2"/></svg>
+            </div>
+            <h3>Сборка из коробки</h3>
+            <p>94 мода, Forge 1.20.1 и готовые настройки. Ставится в пару кликов, ничего докачивать не нужно.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 10c0-3 3-5 7-5s7 2 7 5-3 5-7 5-7-2-7-5Z"/></svg>
+            </div>
+            <h3>Зоны и экономика</h3>
+            <p>Захватывай зоны, получай рубли за каждую и закупайся в терминале: оружие, броня, техника, медицина.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 14h18"/><path d="M6 14V9h12v5"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg>
+            </div>
+            <h3>Техника и дроны</h3>
+            <p>Танки, БТР, гаубицы, FPV-дроны и авиация. Всё сбалансировано под PvP-сезон «Битва за Васькоград».</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 5h7v14H4z"/><path d="M13 5h7v14h-7z"/></svg>
+            </div>
+            <h3>Каталог модов</h3>
+            <p>Modrinth и CurseForge: фильтры по версии и ядру, сортировка, страницы и обновления прямо из лаунчера.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M8 21h8"/></svg>
+            </div>
+            <h3>Свой вид</h3>
+            <p>Фон сборки — иконка, фото или градиент. Свои иконки, имя и иконка лаунчера: под себя, а не «как у всех».</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3v10"/><path d="m8 11 4 3 4-3"/><path d="M4 17v2h16v-2"/></svg>
+            </div>
+            <h3>Обновления в один клик</h3>
+            <p>Встроенный апдейтер, проверка целостности и умная докачка. Обновился — и снова в игру.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="shots">
+        <header class="section-head">
+          <span class="kicker reveal">Скриншоты</span>
+          <h2 class="reveal">Так это <span class="accent">выглядит</span></h2>
+          <p class="reveal">Тёмный интерфейс, аккуратные модалки и никакого визуального шума.</p>
+        </header>
+
+        <div class="shots">
+          <button class="shot reveal" data-full="assets/img/shot-home.png">
+            <img src="assets/img/shot-home.png" alt="Окно создания сборки и выбор иконок" loading="lazy" />
+            <span>Создание сборки и иконки</span>
+          </button>
+          <button class="shot reveal" data-full="assets/img/shot-catalog.png">
+            <img src="assets/img/shot-catalog.png" alt="Каталог сборок с фильтрами" loading="lazy" />
+            <span>Каталог с фильтрами</span>
+          </button>
+          <button class="shot reveal" data-full="assets/img/shot-settings.png">
+            <img src="assets/img/shot-settings.png" alt="Настройки сборки и фон" loading="lazy" />
+            <span>Фон сборки и настройки</span>
+          </button>
+          <button class="shot reveal" data-full="assets/img/shot-icons.png">
+            <img src="assets/img/shot-icons.png" alt="Редактор иконок" loading="lazy" />
+            <span>Редактор иконок</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section pack" id="pack">
+        <div class="pack-inner">
+          <div class="pack-copy">
+            <span class="kicker reveal">Сборка</span>
+            <h2 class="reveal">MineCraft Battle <span class="accent">2.1.3</span></h2>
+            <p class="reveal">
+              Тактический PvP-сезон: захват зон, огнестрел TACZ, техника и дроны.
+              Ставится из лаунчера или вручную — архивом.
+            </p>
+
+            <dl class="pack-stats reveal">
+              <div><dt>Модов</dt><dd>94</dd></div>
+              <div><dt>Версия</dt><dd>1.20.1</dd></div>
+              <div><dt>Forge</dt><dd>47.4.20</dd></div>
+              <div><dt>Размер</dt><dd data-pack-size>571 МБ</dd></div>
+            </dl>
+
+            <div class="hero-actions reveal">
+              <a class="btn btn-accent" data-download-pack href="https://github.com/GXWag/gxw-minecraft-battle/releases/download/pack-battle-2.1.3/GXW-Battle-2.1.3.zip">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19h14" /></svg>
+                Скачать сборку (.zip)
+              </a>
+              <a class="btn btn-ghost" href="https://github.com/GXWag/gxw-minecraft-battle/releases" target="_blank" rel="noreferrer">
+                История версий
+              </a>
+            </div>
+            <p class="muted reveal">Дельта-обновления и SHA-256 — в лаунчере, вручную не нужны.</p>
+          </div>
+
+          <div class="pack-art reveal">
+            <img src="assets/img/cover.jpg" alt="Обложка сборки MineCraft Battle" loading="lazy" />
+            <span class="pack-badge">PvP · сезон 2</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="install">
+        <header class="section-head">
+          <span class="kicker reveal">Установка</span>
+          <h2 class="reveal">Три шага — и <span class="accent">ты в игре</span></h2>
+        </header>
+
+        <ol class="steps">
+          <li class="reveal">
+            <span class="step-num">01</span>
+            <h3>Скачай установщик</h3>
+            <p>Один файл <code>GXW-Launcher-Setup.exe</code>. Windows может спросить подтверждение — это нормально.</p>
+          </li>
+          <li class="reveal">
+            <span class="step-num">02</span>
+            <h3>Запусти и выбери папку</h3>
+            <p>Лаунчер сам скачает Java и игру. Сборка MineCraft Battle появится слева.</p>
+          </li>
+          <li class="reveal">
+            <span class="step-num">03</span>
+            <h3>Нажми «Играть»</h3>
+            <p>Первый запуск чуть дольше: ставятся моды. Дальше — только обновления в один клик.</p>
+          </li>
+        </ol>
+
+        <div class="req reveal">
+          <div>
+            <b>Что нужно</b>
+            <ul>
+              <li>Windows 10/11 x64</li>
+              <li>8 ГБ ОЗУ (лучше 16)</li>
+              <li>~1 ГБ на лаунчер и сборку</li>
+            </ul>
+          </div>
+          <div>
+            <b>Что не нужно</b>
+            <ul>
+              <li>Ставить Java вручную</li>
+              <li>Качать Forge отдельно</li>
+              <li>Разбираться в модах</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq">
+        <header class="section-head">
+          <span class="kicker reveal">Вопросы</span>
+          <h2 class="reveal">Коротко о <span class="accent">главном</span></h2>
+        </header>
+
+        <details class="reveal">
+          <summary>Нужен ли лицензионный аккаунт?</summary>
+          <p>Можно войти через Microsoft или играть под оффлайн-ником. Лаунчер не продаёт игру и не обходит лицензию.</p>
+        </details>
+        <details class="reveal">
+          <summary>Сборка ставится отдельно?</summary>
+          <p>Да: кнопка «Скачать сборку» отдаёт zip. Но проще поставить её из лаунчера — тогда придут обновления и дельты.</p>
+        </details>
+        <details class="reveal">
+          <summary>Куда уходят мои данные?</summary>
+          <p>Телеметрия выключена по умолчанию и включается только вручную. Моды и миры остаются у тебя на диске.</p>
+        </details>
+        <details class="reveal">
+          <summary>Можно играть по сети с друзьями?</summary>
+          <p>Да: LAN, сохранённые серверы и Essential для приглашений. Свой хостинг-сервер — в планах.</p>
+        </details>
+        <details class="reveal">
+          <summary>Это open source?</summary>
+          <p>Да, GPL-3.0. Исходники — на GitHub, сборка тоже открыта.</p>
+        </details>
+      </section>
+
+      <section class="cta">
+        <div class="cta-inner reveal">
+          <img src="assets/img/logo.png" alt="" width="76" height="76" />
+          <h2>Готов начать?</h2>
+          <p>Скачай лаунчер — сборка уже внутри.</p>
+          <div class="hero-actions">
+            <a class="btn btn-accent btn-lg" data-download-launcher href="https://github.com/GXWag/gxw-launcher/releases/latest">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19h14" /></svg>
+              Скачать лаунчер
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://github.com/GXWag/gxw-launcher" target="_blank" rel="noreferrer">Исходники</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/img/logo.png" alt="" width="32" height="32" />
+          <span><b>GXW</b> Launcher</span>
+        </div>
+        <nav class="footer-links" aria-label="Ссылки">
+          <a href="https://github.com/GXWag/gxw-launcher" target="_blank" rel="noreferrer">Лаунчер</a>
+          <a href="https://github.com/GXWag/gxw-minecraft-battle" target="_blank" rel="noreferrer">Сборка</a>
+          <a href="https://github.com/GXWag/gxw-screenshots" target="_blank" rel="noreferrer">Скриншоты</a>
+          <a href="https://github.com/GXWag/gxw-launcher/blob/main/LICENSE" target="_blank" rel="noreferrer">GPL-3.0</a>
+        </nav>
+        <p class="footer-note">Не связан с Mojang или Microsoft. Minecraft — торговая марка Mojang AB.</p>
+      </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-close" aria-label="Закрыть">×</button>
+      <img alt="" />
+    </div>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
