@@ -242,26 +242,6 @@ async function liveVersions() {
   } catch {
     /* остаются статические ссылки */
   }
-
-  try {
-    const releases = await githubJson("https://api.github.com/repos/GXWag/gxw-minecraft-battle/releases?per_page=6");
-    const pack = releases.find((item) => String(item.tag_name || "").startsWith("pack-battle-"));
-    if (!pack) return;
-    const zip = (pack.assets || []).find((item) => item.name.endsWith(".zip") && !/delta/i.test(item.name));
-    const version = String(pack.tag_name).replace("pack-battle-", "");
-    document.querySelectorAll("[data-pack-version]").forEach((node) => {
-      node.textContent = version;
-    });
-    if (zip) {
-      document.querySelectorAll("[data-download-pack]").forEach((node) => {
-        node.href = zip.browser_download_url;
-      });
-      const label = document.querySelector("[data-pack-size]");
-      if (label && zip.size) label.textContent = `${Math.round(zip.size / 1048576)} МБ`;
-    }
-  } catch {
-    /* статическая ссылка на релиз */
-  }
 }
 
 /* ---------- boot ---------- */
